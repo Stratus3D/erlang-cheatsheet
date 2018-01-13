@@ -1,25 +1,32 @@
 @import "compass/reset";
 @import "compass/utilities/tables";
+@import "compass/utilities/tables/alternating-rows-and-columns";
 @import "paper";
 
 // Colors
 $black: #000;
 $gray: #666;
+$light-gray: #eeeeee66;
 $red: #a90533;
 $white: #fff;
 
 // Typography
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 0.85em;
   color: $black;
+  line-height: 1.3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
-	margin-bottom: 0.4em;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	text-transform: uppercase;
 }
 
 h1 {
+	margin-top: 0.2em;
   font-size: 3em;
 }
 
@@ -45,45 +52,77 @@ h6 {
 
 code {
   font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+  background: $light-gray;
+
+  border-radius: 4px;
+  padding: 2px;
+  display: inline-block;
 }
 
 // Layout
 html {
-  background: #eee;
+  background: $light-gray;
 }
 
 body {
   margin: 0 auto;
   max-width: 210mm; // TODO: Refactor this out of here
 
-  > div {
-		padding: 1em;
-	}
 }
 
-.block {
-}
-
-.header {
+.wrapper {
 	display: block;
   overflow: auto;
+  padding: 1em;
 
   h1 {
 		float: left;
 	}
 }
 
+.header, #exit-signals, #exceptions, #errors, #process-relationships, #footer {
+  display: block;
+  overflow: auto;
+  float: left;
+  clear: left;
+}
+#trapping-exits {
+  display: block;
+  clear: left;
+}
+
 table {
   $table-color: $red;
   @include table-scaffolding;
-  @include inner-table-borders(2px, $white);
-  @include outer-table-borders(2px, $white);
+
+  td {
+    padding: 3px 4px;
+  }
+  //@include inner-table-borders(2px, $white);
+  //@include outer-table-borders(2px, $white);
   //@include alternating-rows-and-columns($table-color, adjust-hue($table-color, -120deg), #222222);
-  @include alternating-rows-and-columns($table-color, $table-color, #222222);
+  //@include alternating-rows-and-columns($white, $red, $white);
+  thead {
+    background: $light-gray;
+
+    td {
+      font-weight: bold;
+    }
+  }
+
+  tr:nth-child(2n) {
+    background: $light-gray;
+  }
 }
 
 // Misc.
 .logo {
-	max-height: 100px;
+	max-height: 120px;
   float: right;
+  margin: 0 0 1em 1em;
+}
+
+dt, dd {
+  float: left;
+  padding-right: 10px;
 }

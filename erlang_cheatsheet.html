@@ -17,53 +17,119 @@
             <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
     </head>
-    <body>
+    <body class="A4 sheet">
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-
-        <!-- Add your site or application content here -->
-		<h1>Erlang Cheatsheet</h1>
-        <img src="img/erlang-logo.svg" alt="Erlang e logo"/>
-		<div id="trapping-exits">
-			<h2>Trapping Exits</h2>
-			<p>Trapping exits means the exit signals are converted to messages before being sent to the process. Trapping exits is done on a per process basis. Execute <code>process_flag(trap_exit, true).</code> in the process you want to be trapping exits.</p>
-		</div>
-		<div id="exit-signals">
-            <h2>Exit Signals</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Exit Type</td>
-                        <td>Initiated by</td>
-                        <td>Not trapping exits</td>
-                        <td>Trapping exits</td>
-                    </tr>
-                </thead>
-                <tr>
-                    <td>Normal</td>
-                    <td><code>exit(Pid, normal)</code></td>
-                    <td>Nothing</td>
-                    <td>Receives <code>{'EXIT', Pid, normal}</code></td>
-                </tr>
-                <tr>
-                    <td>Abnormal</td>
-                    <td><code>exit(Pid, Reason)</code></td>
-                    <td>Terminates abnormally</td>
-                    <td>Receives <code>{'EXIT', Pid, Reason}</code></td>
-                </tr>
-                <tr>
-                    <td>Kill</td>
-                    <td><code>exit(Pid, kill)</code></td>
-                    <td>Terminates abnormally</td>
-                    <td>Terminates abnormally</td>
-                </tr>
-            </table>
+		<div class="wrapper">
+			<h1>Erlang Cheatsheet</h1>
+            <img src="img/erlang-logo.svg" alt="Erlang e logo" class="logo"/>
+            <div id="trapping-exits">
+                <h2>Trapping Exits</h2>
+                <p>Trapping exits means the exit signals are converted to messages before being sent to the process. Trapping exits is done on a per process basis. Execute <code>process_flag(trap_exit, true).</code> in the process you want to be trapping exits.</p>
+            </div>
+            <div id="exit-signals">
+                <h2>Exit Signals</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Exit Type</td>
+                            <td>Initiated by</td>
+                            <td>Not trapping exits</td>
+                            <td>Trapping exits</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal</td>
+                            <td><code>exit(Pid, normal)</code></td>
+                            <td>Nothing</td>
+                            <td>Receives <code>{'EXIT', Pid, normal}</code></td>
+                        </tr>
+                        <tr>
+                            <td>Abnormal</td>
+                            <td><code>exit(Pid, Reason)</code></td>
+                            <td>Terminates abnormally</td>
+                            <td>Receives <code>{'EXIT', Pid, Reason}</code></td>
+                        </tr>
+                        <tr>
+                            <td>Kill</td>
+                            <td><code>exit(Pid, kill)</code></td>
+                            <td>Terminates abnormally</td>
+                            <td>Terminates abnormally</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="exceptions">
+                <h2>Raising and Handling Exceptions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Purpose</td>
+                            <td>Expression to generate</td>
+                            <td><code>try catch</code> handling pattern</td>
+                            <td><code>trap_exit</code> message</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stop execution because of runtime error</td>
+                            <td><code>exit/2</code></td>
+                            <td><code>error:Reason</code></td>
+                            <td><code>{'EXIT', Pid, Reason}</code></td>
+                        </tr>
+                        <tr>
+                            <td>Stop execution for any reason</td>
+                            <td><code>exit/1</code></td>
+                            <td><code>exit:Reason</code></td>
+                            <td><code>{'EXIT', Pid, Reason}</code></td>
+                        </tr>
+                        <tr>
+                            <td>non-local return</td>
+                            <td><code>throw/1</code></td>
+                            <td><code>throw:Reason</code></td>
+                            <td><code>{'EXIT', Pid, {{nocatch, Reason}, MFA}}</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="errors">
+                <h2>Errors</h2>
+                <dl>
+                    <dt><code>badmatch</code></dt><dd>pattern match error</dd>
+                    <dt><code>badarg</code></dt><dd>BIF called with the wrong type</dd>
+                    <dt><code>badarith</code></dt><dd>arithmetic error</dd>
+                    <dt><code>undef</code></dt><dd>function not defined</dd>
+                    <dt><code>function_clause</code></dt><dd>no matching function clause</dd>
+                    <dt><code>if_clause</code></dt><dd>no matching if clause</dd>
+                    <dt><code>case_clause</code></dt><dd>no matching case clause</dd>
+                </dl>
+            </div>
+            <div id="process-relationships">
+                <h2>Process Relationships</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Purpose</td>
+                            <td>Function to Create /<br>Example Calls</td>
+                            <td>Function to Destroy /<br>Example Calls</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="footer">Created by <a href="https://stratus3d.com">Stratus3D</a></div>
         </div>
-        <div id="exceptions">
-            <h2>Raising and Handling Exceptions</h2>
-Purpose                 Expression to generate   try catch handling pattern    trap_exit message
-        </div>
-        <div>Created by <a href="https://stratus3d.com">Stratus3D</a></div>
     </body>
 </html>
