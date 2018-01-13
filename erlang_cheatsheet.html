@@ -1,0 +1,67 @@
+<!doctype html>
+	<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Erlang Cheatsheet</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+        <!--[if IE]>
+            <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+		<h1>Erlang Cheatsheet</h1>
+		<div id="trapping-exits">
+			<h2>Trapping Exits</h2>
+			<p>Trapping exits means the exit signals are converted to messages before being sent to the process. Trapping exits is done on a per process basis. Execute <code>process_flag(trap_exit, true).</code> in the process you want to be trapping exits.</p>
+		</div>
+		<div id="exit-signals">
+            <h2>Exit Signals</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Exit Type</td>
+                        <td>Initiated by</td>
+                        <td>Not trapping exits</td>
+                        <td>Trapping exits</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Normal</td>
+                    <td><code>exit(Pid, normal)</code></td>
+                    <td>Nothing</td>
+                    <td>Receives <code>{'EXIT', Pid, normal}</code></td>
+                </tr>
+                <tr>
+                    <td>Abnormal</td>
+                    <td><code>exit(Pid, Reason)</code></td>
+                    <td>Terminates abnormally</td>
+                    <td>Receives <code>{'EXIT', Pid, Reason}</code></td>
+                </tr>
+                <tr>
+                    <td>Kill</td>
+                    <td><code>exit(Pid, kill)</code></td>
+                    <td>Terminates abnormally</td>
+                    <td>Terminates abnormally</td>
+                </tr>
+            </table>
+        </div>
+        <div id="exceptions">
+            <h2>Raising and Handling Exceptions</h2>
+Purpose                 Expression to generate   try catch handling pattern    trap_exit message
+        </div>
+    </body>
+</html>
