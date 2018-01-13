@@ -22,8 +22,9 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 		<div class="wrapper">
-			<h1>Erlang Cheatsheet</h1>
             <img src="img/erlang-logo.svg" alt="Erlang e logo" class="logo"/>
+			<h1>Erlang Cheatsheet</h1>
+            <p class="subscript">The quirks of exit signals and exception handling you always forget </p>
             <div id="trapping-exits">
                 <h2>Trapping Exits</h2>
                 <p>Trapping exits means the exit signals are converted to messages before being sent to the process. Trapping exits is done on a per process basis. Execute <code>process_flag(trap_exit, true).</code> in the process you want to be trapping exits.</p>
@@ -67,8 +68,8 @@
                     <thead>
                         <tr>
                             <td>Purpose</td>
-                            <td>Expression to generate</td>
-                            <td><code>try catch</code> handling pattern</td>
+                            <td width="20%">Expression to generate</td>
+                            <td width="25%"><code>try catch</code> handling pattern</td>
                             <td><code>trap_exit</code> message</td>
                         </tr>
                     </thead>
@@ -114,22 +115,29 @@
                             <td>Name</td>
                             <td>Type</td>
                             <td>Purpose</td>
-                            <td>Function to Create /<br>Example Calls</td>
-                            <td>Function to Destroy /<br>Example Calls</td>
+                            <td width="28%">Function to Create /<br>Example Calls</td>
+                            <td width="20%">Function to Destroy /<br>Example Calls</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Link</td>
+                            <td>Symmetrical</td>
+                            <td>Propagate exit signal from a process to all linked processes</td>
+                            <td><code>link/1</code>, <code>spawn_link/1,2,3,4</code><br><code>link(Pid).</code></td>
+                            <td><code>unlink/1</code><br><code>unlink(Pid)<code></td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>Asymmetrical</td>
+                            <td>Sends a message to the monitoring process when the monitored process dies</td>
+                            <td><code>monitor/2</code>, <code>spawn_monitor/1,3</code><br><code>monitor(Pid)</code></td>
+                            <td><code>demonitor/1,2</code><br><code>demonitor(Pid)</code></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="footer">Created by <a href="https://stratus3d.com">Stratus3D</a></div>
+            <div id="footer"><span class="credit">Created by <a href="https://stratus3d.com">Stratus3D</a></span></div>
         </div>
     </body>
 </html>
