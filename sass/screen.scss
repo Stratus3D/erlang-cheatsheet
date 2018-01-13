@@ -1,8 +1,58 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
+@import "compass/utilities/tables";
 
+// Colors
+$black: #000;
+$gray: #666;
+$red: #a90533;
+$white: #fff;
 
+// Typography
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: $black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h6 {
+  font-size: 1.1em;
+}
+
+code {
+  font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+}
+
+// Layout
+table {
+  $table-color: $red;
+  @include table-scaffolding;
+  @include inner-table-borders(1px, darken($table-color, 40%));
+  @include outer-table-borders(2px);
+  //@include alternating-rows-and-columns($table-color, adjust-hue($table-color, -120deg), #222222);
+  @include alternating-rows-and-columns($table-color, $table-color, #222222);
+}
+
+// Misc.
