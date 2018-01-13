@@ -1,5 +1,6 @@
 @import "compass/reset";
 @import "compass/utilities/tables";
+@import "paper";
 
 // Colors
 $black: #000;
@@ -15,14 +16,15 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+	margin-bottom: 0.4em;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 2em;
 }
 
 h3 {
@@ -30,11 +32,11 @@ h3 {
 }
 
 h4 {
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
 h5 {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 h6 {
@@ -46,13 +48,42 @@ code {
 }
 
 // Layout
+html {
+  background: #eee;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 210mm; // TODO: Refactor this out of here
+
+  > div {
+		padding: 1em;
+	}
+}
+
+.block {
+}
+
+.header {
+	display: block;
+  overflow: auto;
+
+  h1 {
+		float: left;
+	}
+}
+
 table {
   $table-color: $red;
   @include table-scaffolding;
-  @include inner-table-borders(1px, darken($table-color, 40%));
-  @include outer-table-borders(2px);
+  @include inner-table-borders(2px, $white);
+  @include outer-table-borders(2px, $white);
   //@include alternating-rows-and-columns($table-color, adjust-hue($table-color, -120deg), #222222);
   @include alternating-rows-and-columns($table-color, $table-color, #222222);
 }
 
 // Misc.
+.logo {
+	max-height: 100px;
+  float: right;
+}
