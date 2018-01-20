@@ -1,5 +1,7 @@
 # Erlang Cheatsheet
 
+![Erlang Cheatsheet screenshot](erlang-cheatsheet-screenshot-window.jpg "Erlang Cheatsheet screenshot")
+
 The quirks of exit signals and exception handling you always forget.
 
 See the Cheatsheet here: https://stratus3d.com/erlang-cheatsheet
