@@ -48,6 +48,12 @@
                             <td>Receives <code>{'EXIT', Pid, normal}</code></td>
                         </tr>
                         <tr>
+                            <td>Normal</td>
+                            <td><code>exit(self(), normal)</code></td>
+                            <td>Terminates normally</td>
+                            <td>Receives <code>{'EXIT', Pid, normal}</code></td>
+                        </tr>
+                        <tr>
                             <td>Abnormal</td>
                             <td><code>exit(Pid, Reason)</code></td>
                             <td>Terminates abnormally</td>
