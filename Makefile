@@ -1,6 +1,6 @@
 .PHONY: all compile watch release
 
-all: compile release
+all: release
 
 watch:
 	compass watch
@@ -8,7 +8,8 @@ watch:
 compile:
 	compass compile
 
-release:
+release: compile
 	mkdir -p build
 	cp -r img stylesheets build
-	cp erlang_cheatsheet.html build/index.html
+	# Generate HTML file
+	./build_erlang_cheatsheet.sh
