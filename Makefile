@@ -8,7 +8,9 @@ watch:
 compile:
 	compass compile
 
-release:
+release: compile
 	mkdir -p build
 	cp -r img stylesheets build
-	cp erlang_cheatsheet.html build/index.html
+	asciidoctor -s -d book -o build/erlang_cheatsheet_content.html erlang_cheatsheet.adoc
+	# Generate HTML file
+	./build_erlang_cheatsheet.sh
