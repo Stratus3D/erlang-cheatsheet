@@ -1,0 +1,73 @@
+= Erlang Cheatsheet
+
+[.logo]
+image:img/erlang-logo.svg[Erlang e logo]
+
+= Erlang Cheatsheet
+
+[.subscript]
+The quirks of exit signals and exception handling you always forget
+
+[.trapping-exits]
+== Trapping Exits
+
+Trapping exits means the exit signals are converted to messages before being sent to the process. Trapping exits is done on a per process basis. Execute `process_flag(trap_exit, true).` in the process you want to be trapping exits.
+
+== Exit Signals
+
+[%autowidth, options="header"]
+|=================
+|Exit Type |Initiated by           |Not trapping exits    |Trapping exits
+|Normal    |`exit(Pid, normal)`    |Nothing               |Receives `{'EXIT', Pid, normal}`
+|Normal    |`exit(self(), normal)` |Terminates normally   |Receives `{'EXIT', Pid, normal}`
+|Abnormal  |`exit(Pid, Reason)`    |Terminates abnormally |Receives `{'EXIT', Pid, Reason}`
+|Kill      |`exit(Pid, kill)`      |Terminates abnormally |Terminates abnormally
+|=================
+
+== Raising and Handling Exceptions
+
+[options="header", cols="~,20,25,~"]
+|=================
+|Purpose |Expression to generate |`try catch` handling pattern |`trap_exit` message
+|Stop execution because of runtime error |`exit/2` |`error:Reason` |`{'EXIT', Pid, Reason}`
+|Stop execution for any reason |`exit/1` |`exit:Reason` |`{'EXIT', Pid, Reason}`
+|non-local return |`throw/1` |`throw:Reason` |`{'EXIT', Pid, {{nocatch, Reason}, MFA}}`
+|=================
+
+== Errors
+
+`badmatch`::
+  pattern match error
+`badarg`::
+  BIF called with the wrong type
+`badarith`::
+  arithmetic error
+`undef`::
+  function not defined
+`function_clause`::
+  no matching function clause
+`if_clause`::
+  no matching if clause
+[.test]
+`case_clause`::
+  no matching case clause
+
+[.process-relationships]
+== Process Relationships
+
+[options="header", cols="~,~,~,28,20"]
+|=================
+|Name |Type |Purpose |Function to Create / +
+Example Calls |Function to Destroy / +
+Example Calls
+|Link |Symmetrical |Propagate exit signal from a process to all linked processes |`link/1`, `spawn_link/1,2,3,4` +
+`link(Pid).` |`unlink/1` +
+`unlink(Pid)`
+|Monitor |Asymmetrical |Sends a message to the monitoring process when the monitored process dies |`monitor/2`, `spawn_monitor/1,3` +
+`monitor(Pid)` |`demonitor/1,2` +
+`demonitor(Pid)`
+|=================
+
+[[footer]]
+[.credit]
+Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]

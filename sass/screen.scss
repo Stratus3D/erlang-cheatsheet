@@ -58,7 +58,7 @@ a {
   color: $red;
 }
 
-p.subscript {
+.subscript {
   float: left;
   clear: left;
   font-style: italic;
@@ -101,17 +101,17 @@ body {
 		float: left;
 	}
 }
-
-.header, #exit-signals, #exceptions, #errors, #process-relationships, #footer {
+.header, .sect1 {
   display: block;
   overflow: auto;
   float: left;
   clear: left;
 }
 
-#trapping-exits {
+.trapping-exits {
   display: block;
   clear: left;
+  float: none;
 }
 
 #footer {
@@ -121,9 +121,14 @@ body {
 
 
 table {
+  clear: both;
   margin-bottom: 0.5em;
   $table-color: $red;
   @include table-scaffolding;
+
+  th {
+    text-align: left;
+  }
 
   td {
     padding: 3px 4px;
@@ -143,10 +148,15 @@ table {
   tr:nth-child(2n) {
     background: $light-gray;
   }
+
+  p {
+    float: left;
+    display: block;
+  }
 }
 
 // Misc.
-.logo {
+.logo img {
 	max-height: 120px;
 	max-width: 140px;
   float: right;
@@ -159,4 +169,8 @@ dt, dd {
 }
 dd {
   margin-right: 1em;
+
+  p {
+    font-size: inherit;
+  }
 }
