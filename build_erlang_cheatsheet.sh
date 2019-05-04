@@ -6,7 +6,7 @@ set -euo pipefail
 #ORIGINAL_IFS=$IFS
 IFS=$'\t\n' # Stricter IFS settings
 
-asciidoctor -s -d book -o build/erlang_cheatsheet_content.html erlang_cheatsheet.adoc
+asciidoctor -s -o build/erlang_cheatsheet_content.html erlang_cheatsheet.adoc
 
 (
   export CHEATSHEET_TITLE CHEATSHEET_HTML CHEATSHEET_DESCRIPTION

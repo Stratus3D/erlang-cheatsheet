@@ -3,8 +3,6 @@
 [.logo]
 image:img/erlang-logo.svg[Erlang e logo]
 
-= Erlang Cheatsheet
-
 [.subscript]
 The quirks of exit signals and exception handling you always forget
 
