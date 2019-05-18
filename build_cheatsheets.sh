@@ -23,6 +23,6 @@ asciidoctor -s -o build/otp_cheatsheet_content.html otp_cheatsheet.adoc
   export CHEATSHEET_TITLE CHEATSHEET_HTML CHEATSHEET_DESCRIPTION
   CHEATSHEET_TITLE="OTP Cheatsheet";
   CHEATSHEET_HTML="$(cat build/otp_cheatsheet_content.html)";
-  CHEATSHEET_DESCRIPTION="";
+  CHEATSHEET_DESCRIPTION="The details of OTP that you may have forgotten or never known!";
   envsubst < template.html > build/otp_cheatsheet.html
 )
