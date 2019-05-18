@@ -1,0 +1,67 @@
+= OTP Cheatsheet
+
+[.logo]
+image:img/erlang-logo.svg[Erlang e logo]
+
+== Behaviors
+
+[%autowidth, options="header"]
+|=================
+|Behavior |Purpose
+|gen_server |For implementing the server of a client-server relation
+|gen_statem |For implementing state machines
+|gen_event |For implementing event handling functionality
+|supervisor |For implementing a supervisor in a supervision tree
+|=================
+
+== Callbacks
+
+[%autowidth, options="header"]
+|=================
+|Callback |Behaviors |Purpose
+|=================
+
+== Supervisors
+
+Structuring processes in an OTP application is done using a supervision tree. A supervision tree is comprised of supervisors (branches) and workers (leaves). Supervisors can be nested to create any tree structure needed. Crashes bubble up the tree from the worker nodes to their supervisor. Supervisors either the.
+
+=== Children
+
+Workers :: Something
+
+Supervisors :: Something else
+
+==== Child Specs
+
+`child_spec() = #{id => child_id(),       % mandatory
+                 start => mfargs(),      % mandatory
+                 restart => restart(),   % optional
+                 shutdown => shutdown(), % optional
+                 type => worker(),       % optional
+                 modules => modules()}   % optional`
+
+=== Restart Strategies
+
+[%autowidth, options="header"]
+|=================
+|Strategy |Description
+|one_for_one |If one child process crashes only restart that process
+|one_for_all |If one child process crashes all other child processes are terminated and all of them are restarted
+|rest_for_one |If one child process crashes the rest of the child processes are terminated and the crashes process and other terminated processes are restarted
+|simple_one_for_one |Just like the one_for_one strategy, but it can only start one kind of child process, and all child processes are added dynamically
+|=================
+
+=== Restart
+
+== Applications
+
+[%autowidth, options="header"]
+|=================
+|temporary
+|transient
+|permanent
+|=================
+
+[[footer]]
+[.credit]
+http://erlang.org/doc/design_principles/des_princ.html[OTP Design Principles]  Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]
