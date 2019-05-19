@@ -50,12 +50,20 @@ h6 {
   font-size: 1.1em;
 }
 
+
 p, code, span, table, dd, dt {
   font-size: 0.95em;
 }
 
 a {
   color: $red;
+}
+
+// don't make heading links red
+h1, h2, h3, h4, h5, h6 {
+  a {
+    color: $black;
+  }
 }
 
 .subscript {
@@ -118,6 +126,24 @@ body {
   float: none;
 }
 
+.child-specs {
+  float: left;
+}
+
+.restart-types, .child-types {
+  float: left;
+  clear: none;
+}
+
+.child-specs, .restart-types, .child-types {
+  width: 48%;
+  padding-right: 2%;
+}
+
+.restart-strategies {
+  clear: both;
+}
+
 #footer {
   padding: 1em 0;
   float: right;
@@ -177,4 +203,12 @@ dd {
   p {
     font-size: inherit;
   }
+}
+
+strong {
+  font-weight: bold;
+}
+
+.listingblock {
+  float: left;
 }

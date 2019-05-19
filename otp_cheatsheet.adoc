@@ -1,0 +1,91 @@
+= OTP Cheatsheet
+
+[.logo]
+image:img/erlang-logo.svg[Erlang e logo]
+
+[.subscript]
+The details of OTP that you may have forgotten or never known!
+
+== Behaviors
+
+[%autowidth, options="header"]
+|=================
+|Behavior |Purpose
+|gen_server |For implementing the server of a client-server relation
+|gen_statem |For implementing state machines
+|gen_event |For implementing event handling functionality
+|supervisor |For implementing a supervisor in a supervision tree
+|=================
+
+== Supervisors
+
+=== link:http://erlang.org/doc/design_principles/sup_princ.html#maximum-restart-intensity[Restart Intensity]
+
+The supervisor's maximum restart intensity limits the number of restarts that can occur within a given amount of time. Restart intensity is specified as a map with two keys:
+
+`intensity` :: The number of restarts permitted within the defined `period`
+`period` :: The time period in seconds in which the maximum number of restarts permitted by `intensity`
+
+[.child-specs]
+=== link:http://erlang.org/doc/design_principles/sup_princ.html#child-specification[Child Specs]
+
+Child specs are maps with the following keys:
+
+[%autowidth, options="header"]
+|=================
+|Key |Optional |Description
+|`id` |required |An identifer to use for the process
+|`start` |required |The MFA to use to start the process
+|`restart` |optional |See the restart types
+|`shutdown` |  optional |`brutal_kill` or an integer timeout for workers. Must be `infinity` for supervisors.
+|`type` | optional| See the child types
+|`modules` | optional| The callback module if there is one
+|=================
+
+[.child-types]
+=== Child Types
+
+`worker` :: Any process that is not another supervisor
+`supervisor` :: A supervisor process that is a child of the supervisor
+
+[.restart-types]
+=== Restart Types
+
+`permanent` :: The process is always restarted
+`temporary` :: The process is never restarted
+`transient` :: The process is only restarted if it terminates abnormally
+
+
+[.restart-strategies]
+=== Restart Strategies
+
+[%autowidth, options="header"]
+|=================
+|Strategy |Description
+|`one_for_one` |If one child process crashes only restart that process
+|`one_for_all` |If one child process crashes all other child processes are terminated and all of them are restarted
+|`rest_for_one` |If one child process crashes the rest of the child processes are terminated and the crashes process and other terminated processes are restarted
+|`simple_one_for_one` |Just like the one_for_one strategy, but it can only start one kind of child process, and all child processes are added dynamically
+|=================
+
+
+== link:http://erlang.org/doc/design_principles/applications.html[Applications]
+
+[options="header", cols="12,~"]
+|=================
+|Start Types |Affect on Runtime when Application Terminates
+|`temporary` |Termination is reported but no other applications are terminated
+|`transient` |If the application terminates with reason `normal` termination is reported and no other applications are terminated. If application terminates with any other reason all other applications and the runtime system are terminated.
+|`permanent` |All other applications and the runtime system are terminated
+|=================
+
+[%autowidth, options="header"]
+|=================
+|Application Types
+|*Applications* Regular applications define their own supervision tree and have their own modules and processes. They must implement the application callback behavior and specify the callback module in the `mod` key in the application resource file.
+|*Libraries* Is a simple collection of modules and doesn't implement an application behavior callback module
+|=================
+
+[[footer]]
+[.credit]
+http://erlang.org/doc/design_principles/des_princ.html[OTP Design Principles]  Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]

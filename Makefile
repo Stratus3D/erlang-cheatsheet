@@ -11,5 +11,5 @@ compile:
 release: compile
 	mkdir -p build
 	cp -r img stylesheets build
-	# Generate HTML file
-	./build_erlang_cheatsheet.sh
+	# Generate HTML files
+	./build_cheatsheets.sh
