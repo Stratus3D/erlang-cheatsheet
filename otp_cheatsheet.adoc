@@ -10,10 +10,10 @@ The details of OTP that you may have forgotten or never known!
 
 [%autowidth]
 |=================
-|gen_server |For implementing the server of a client-server relation
-|gen_statem |For implementing state machines
-|gen_event |For implementing event handling functionality
-|supervisor |For implementing a supervisor in a supervision tree
+|link:http://erlang.org/doc/man/gen_server.html[`gen_server`] |For implementing the server of a client-server relation
+|link:http://erlang.org/doc/man/gen_statem.html[`gen_statem`] |For implementing state machines
+|link:http://erlang.org/doc/man/gen_event.html[`gen_event`] |For implementing event handling functionality
+|link:http://erlang.org/doc/man/supervisor.html[`supervisor`] |For implementing a supervisor in a supervision tree
 |=================
 
 == Supervisors
@@ -43,8 +43,8 @@ Child specs are maps with the following keys:
 
 [%autowidth]
 |=================
-| `worker` |Any process that is not another supervisor
-| `supervisor` |A supervisor process that is a child of the supervisor
+| `worker` |Any process that is not a supervisor
+| `supervisor` |A supervisor process
 |=================
 
 [.restart-types]
@@ -77,7 +77,7 @@ Child specs are maps with the following keys:
 |=================
 2+|Application Types
 |*Applications* |Regular applications define their own supervision tree and have their own modules and processes. They must implement the application callback behavior and specify the callback module in the `mod` key in the application resource file.
-|*Libraries* |Is a simple collection of modules and doesn't implement an application behavior callback module
+|*Libraries* |A simple collection of modules and doesn't implement an application behavior callback module
 |=================
 
 [options="header", cols="12,~"]
