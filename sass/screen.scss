@@ -136,8 +136,12 @@ body {
 }
 
 .child-specs, .restart-types, .child-types {
-  width: 48%;
+  width: 38%;
   padding-right: 2%;
+}
+
+.child-specs {
+  width: 58%;
 }
 
 .restart-strategies {
