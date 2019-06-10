@@ -15,6 +15,7 @@ asciidoctor -s -o build/erlang_cheatsheet_content.html erlang_cheatsheet.adoc
   CHEATSHEET_HTML="$(cat build/erlang_cheatsheet_content.html)";
   CHEATSHEET_DESCRIPTION="The quirks of exit signals and exception handling you always forget";
   envsubst < template.html > build/erlang_cheatsheet.html
+  rm build/erlang_cheatsheet_content.html
 )
 
 # OTP Cheatsheet
@@ -25,4 +26,5 @@ asciidoctor -s -o build/otp_cheatsheet_content.html otp_cheatsheet.adoc
   CHEATSHEET_HTML="$(cat build/otp_cheatsheet_content.html)";
   CHEATSHEET_DESCRIPTION="The details of OTP that you may have forgotten or never known!";
   envsubst < template.html > build/otp_cheatsheet.html
+  rm build/otp_cheatsheet_content.html
 )
