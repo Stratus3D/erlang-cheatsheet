@@ -16,11 +16,28 @@ The details of OTP that you may have forgotten or never known!
 |link:http://erlang.org/doc/man/supervisor.html[`supervisor`] |For implementing a supervisor in a supervision tree
 |=================
 
+== link:http://erlang.org/doc/design_principles/applications.html[Applications]
+
+[%autowidth, options="header"]
+|=================
+2+|Application Types
+|*Applications* |Regular applications that define their own supervision tree
+|*Libraries* |A simple collection of modules and doesn't implement an application behavior callback module
+|=================
+
+[options="header", cols="12,~"]
+|=================
+|Start Types |Affect on Runtime when Application Terminates
+|`temporary` |Termination is reported but no other applications are terminated
+|`transient` |If application terminates abnormally all other applications and the runtime system are terminated
+|`permanent` |All other applications and the runtime system are terminated
+|=================
+
 == Supervisors
 
 === link:http://erlang.org/doc/design_principles/sup_princ.html#maximum-restart-intensity[Restart Intensity]
 
-The supervisor's maximum restart intensity limits the number of restarts that can occur within a given amount of time. Restart intensity is specified as a map with two keys: `intensity` - The number of restarts permitted within the defined `period`, and `period` - The time period in seconds in which the maximum number of restarts permitted by `intensity`.
+The supervisor's maximum restart intensity limits the number of restarts that can occur within an period of time. Restart intensity is specified as a map with two keys - `intensity` and `period`. Restarts are limited to the to number specified by `intensity` that occur within the number of seconds specified by `period`.
 
 [.child-specs]
 === link:http://erlang.org/doc/design_principles/sup_princ.html#child-specification[Child Specs]
@@ -57,7 +74,6 @@ Child specs are maps with the following keys:
 |`transient` |The process is only restarted if it terminates abnormally
 |=================
 
-
 [.restart-strategies]
 === Restart Strategies
 
@@ -67,25 +83,7 @@ Child specs are maps with the following keys:
 |`one_for_one` |If one child process crashes only restart that process
 |`one_for_all` |If one child process crashes all other child processes are terminated and all of them are restarted
 |`rest_for_one` |If one child process crashes the rest of the child processes are terminated and the crashed process and other terminated processes are restarted
-|`simple_one_for_one` |Just like the one_for_one strategy, but it can only start one kind of child process, and all child processes are added dynamically
-|=================
-
-
-== link:http://erlang.org/doc/design_principles/applications.html[Applications]
-
-[%autowidth, options="header"]
-|=================
-2+|Application Types
-|*Applications* |Regular applications define their own supervision tree and have their own modules and processes. They must implement the application callback behavior and specify the callback module in the `mod` key in the application resource file.
-|*Libraries* |A simple collection of modules and doesn't implement an application behavior callback module
-|=================
-
-[options="header", cols="12,~"]
-|=================
-|Start Types |Affect on Runtime when Application Terminates
-|`temporary` |Termination is reported but no other applications are terminated
-|`transient` |If application terminates abnormally all other applications and the runtime system are terminated
-|`permanent` |All other applications and the runtime system are terminated
+|`simple_one_for_one` |Like the one_for_one strategy, but it can only dynamically start processes from a single child spec
 |=================
 
 [[footer]]
