@@ -1,0 +1,50 @@
+= Elixir Cheatsheet
+
+[.logo]
+image:img/erlang-logo.svg[Erlang e logo]
+
+== Sigils
+
+== Streams?
+
+== Protocols?
+
+== Error Handling
+
+== Module Attributes
+
+== Behaviors
+
+[%autowidth, options="header"]
+|=================
+|Behavior |Purpose
+|gen_server |For implementing the server of a client-server relation
+|gen_statem |For implementing state machines
+|gen_event |For implementing event handling functionality
+|supervisor |For implementing a supervisor in a supervision tree
+|=================
+
+== Callbacks
+
+|=================
+|=================
+
+== Supervisors
+
+Structuring processes in an OTP application is done using a supervision tree. A supervision tree is comprised of supervisors (branches) and workers (leaves). Supervisors can be nested to create any tree structure needed. Crashes bubble up the tree from the worker nodes to their supervisor. Supervisors either the.
+
+=== Children
+
+Workers :: Something
+
+Supervisors :: Something else
+
+==== Child Specs
+
+=== Restart Strageties
+
+== Applications
+
+[[footer]]
+[.credit]
+http://erlang.org/doc/design_principles/des_princ.html[OTP Design Principles]  Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]
