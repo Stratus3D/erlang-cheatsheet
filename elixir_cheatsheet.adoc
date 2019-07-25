@@ -5,6 +5,17 @@ image:img/erlang-logo.svg[Erlang e logo]
 
 == Sigils
 
+|=================
+|Behavior |Purpose
+|`~r` |Regular Expression
+|`~s` |String
+|`~c` |Char list
+|`~w()s` |Word list of strings
+|`~w()c` |Word list of char lists
+|`~w()a` |Word list of atoms
+|=================
+
+
 == Streams?
 
 == Protocols?
