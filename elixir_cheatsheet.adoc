@@ -20,6 +20,32 @@ https://elixir-lang.org/getting-started/sigils.html
 
 == Metaprogramming
 
+[%autowidth, options="header"]
+|=================
+|Sigil |Explaination
+|=================
+
+== Escape Codes
+
+The following escape codes can be used in strings and char lists:
+
+|=================
+|\\ – single backslash
+|\a – bell/alert
+|\b – backspace
+|\d - delete
+|\e - escape
+|\f - form feed
+|\n – newline
+|\r – carriage return
+|\s – space
+|\t – tab
+|\v – vertical tab
+|\0 - null byte
+|\xDD - represents a single byte in hexadecimal (such as \x13)
+|\uDDDD and \u{D...} - represents a Unicode codepoint in hexadecimal (such as \u{1F600})
+|=================
+
 == Streams?
 
 == Protocols?
@@ -38,27 +64,6 @@ https://elixir-lang.org/getting-started/sigils.html
 |gen_event |For implementing event handling functionality
 |supervisor |For implementing a supervisor in a supervision tree
 |=================
-
-== Callbacks
-
-|=================
-|=================
-
-== Supervisors
-
-Structuring processes in an OTP application is done using a supervision tree. A supervision tree is comprised of supervisors (branches) and workers (leaves). Supervisors can be nested to create any tree structure needed. Crashes bubble up the tree from the worker nodes to their supervisor. Supervisors either the.
-
-=== Children
-
-Workers :: Something
-
-Supervisors :: Something else
-
-==== Child Specs
-
-=== Restart Strageties
-
-== Applications
 
 [[footer]]
 [.credit]
