@@ -1,8 +1,6 @@
 = Elixir Cheatsheet
 
-[.logo]
-image:img/erlang-logo.svg[Erlang e logo]
-
+[.sigils]
 == link:https://elixir-lang.org/getting-started/sigils.html[Sigils]
 
 Sigils support 8 different delimiters - `//`, `||`, `""`, `''`, `()`, `[]`, `{}`, `<>`.
@@ -18,54 +16,60 @@ Sigils support 8 different delimiters - `//`, `||`, `""`, `''`, `()`, `[]`, `{}`
 |`~w()a` |Word list of atoms
 |=================
 
+[.escape-codes]
 == Escape Codes
 
 The following escape codes can be used in strings and char lists:
 
 [%autowidth, options="header"]
 |=================
-|Code |Explaination
-|`\\` | single backslash
-|`\a` | bell/alert
-|`\b` | backspace
-|`\d` | delete
-|`\e` | escape
-|`\f` | form feed
-|`\n` | newline
-|`\r` | carriage return
-|`\s` | space
-|`\t` | tab
-|`\v` | vertical tab
-|`\0` | null byte
-|`\xDD` |represents a single byte in hexadecimal (such as \x13)
-|`\uDDDD` and `\u{D...}` |represents a Unicode codepoint in hexadecimal (such as \u{1F600})
+|Code |Explaination |Code |Explaination
+|`\\` | single backslash |`\a` | bell/alert
+|`\b` | backspace |`\d` | delete
+|`\e` | escape |`\f` | form feed
+|`\n` | newline |`\r` | carriage return
+|`\s` | space |`\t` | tab
+|`\v` | vertical tab |`\0` | null byte
+|`\xDD` |represents a single byte in hexadecimal (such as \x13) |`\uDDDD` and `\u{D...}` |represents a Unicode codepoint in hexadecimal (such as \u{1F600})
 |=================
 
 A double quote literal inside a double quoted string also needs to be escaped.
 
+[.metaprogramming]
 == Metaprogramming
 
 [%autowidth, options="header"]
 |=================
 |Expression |Explaination
-|`__MODULE__`|Expands to the module name of the current module
-|
+|`\_\_MODULE\_\_` |Expands to the module name of the current module
+|`quote do ... end` |Convert the code inside the block to AST
+|`
 |=================
 
+== Structs
 
-== Streams?
+Define
 
-== Protocols?
+----
+defmodule Person do
+  defstruct first_name: "", last_name: ""
+end
+----
 
-== Structs?
+Create
 
-== Maps and Lists?
+`%Person{first_name: "Trevor", last_name: "Brown"}`
 
+Pattern match
+
+
+Get field value
+Update
+
+== Maps and Lists
+
+[.comprehensions]
 == Comprehensions
-
-== Types
-
-== Module Attributes
 
 [[footer]]
 [.credit]

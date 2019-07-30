@@ -126,6 +126,7 @@ body {
   float: none;
 }
 
+// Specific to OTP cheatsheet
 .child-specs {
   float: left;
 }
@@ -146,6 +147,21 @@ body {
 
 .restart-strategies {
   clear: both;
+}
+
+// Specific to Elixir cheatsheet
+.sigils, .escape-codes {
+  float: left;
+  clear: none;
+}
+
+.sigils {
+  clear: both;
+  width: 33%;
+}
+
+.escape-codes {
+  width: 66%;
 }
 
 #footer {
