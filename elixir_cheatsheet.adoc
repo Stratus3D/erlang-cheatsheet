@@ -17,7 +17,7 @@ Sigils support 8 different delimiters - `//`, `||`, `""`, `''`, `()`, `[]`, `{}`
 |=================
 
 [.escape-codes]
-== Escape Codes
+== link:https://elixir-lang.org/getting-started/sigils.html[Escape Codes]
 
 The following escape codes can be used in strings and char lists:
 
@@ -36,19 +36,31 @@ The following escape codes can be used in strings and char lists:
 A double quote literal inside a double quoted string also needs to be escaped.
 
 [.metaprogramming]
-== Metaprogramming
+== link:https://elixir-lang.org/getting-started/meta/macros.html[Metaprogramming]
 
+Various metaprogramming variables and macros.
 [%autowidth, options="header"]
 |=================
 |Expression |Explaination
-|`\_\_MODULE\_\_` |Expands to the module name of the current module
+|`__ENV__` |A struct containing details about the compilation environment
+|`defmacro (name) do ... end` |Define a macro
 |`quote do ... end` |Convert the code inside the block to AST
-|`
+|`unquote(expresion)` |Use to inject values from outside of the `quote` block
+|`def __using__` |The using macro
+|`\_\_MODULE\_\_` |Expands to the module name of the current module
+|`__CALLER__` |
+|`__DIR__` |
+|`__STACKTRACE__` |
 |=================
 
-== Structs
+== Structs, Maps, and Lists
 
-Define
+[%autowidth, options="header"]
+|=================
+|Operation |List |Map |Struct
+|Create |`[1,2,3]` |`%{a: :foo}` |
+|Pattern match | | |
+|=================
 
 ----
 defmodule Person do
@@ -66,10 +78,22 @@ Pattern match
 Get field value
 Update
 
-== Maps and Lists
+== 
+
+[
 
 [.comprehensions]
 == Comprehensions
+
+[source, elixir]
+----
+for var1 <- generator1,
+    var2 <- generator2,
+    new_var = some_expr(var1, var2,
+    a_check?(new_var) do
+    operation_to_generate_final_value(var1, var2)
+end
+----
 
 [[footer]]
 [.credit]
