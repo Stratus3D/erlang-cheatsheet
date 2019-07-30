@@ -4,7 +4,8 @@
 
 The quirks of exit signals and exception handling you always forget.
 
-See the Cheatsheet here: https://stratus3d.com/erlang-cheatsheet
+See the Erlang Cheatsheet here: https://stratus3d.com/erlang-cheatsheet
+See the OTP Cheatsheet here: https://stratus3d.com/otp-cheatsheet
 
 ## Contributing
 

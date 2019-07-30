@@ -28,3 +28,14 @@ asciidoctor -s -o build/otp_cheatsheet_content.html otp_cheatsheet.adoc
   envsubst < template.html > build/otp_cheatsheet.html
   rm build/otp_cheatsheet_content.html
 )
+
+# OTP Cheatsheet
+asciidoctor -s -o build/elixir_cheatsheet_content.html elixir_cheatsheet.adoc
+(
+  export CHEATSHEET_TITLE CHEATSHEET_HTML CHEATSHEET_DESCRIPTION
+  CHEATSHEET_TITLE="Elixir Cheatsheet";
+  CHEATSHEET_HTML="$(cat build/elixir_cheatsheet_content.html)";
+  CHEATSHEET_DESCRIPTION="The details of Elixir that you often forget";
+  envsubst < template.html > build/elixir_cheatsheet.html
+  rm build/elixir_cheatsheet_content.html
+)
