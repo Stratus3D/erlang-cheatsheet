@@ -3,9 +3,9 @@
 [.logo]
 image:img/erlang-logo.svg[Erlang e logo]
 
-== Sigils
+== link:https://elixir-lang.org/getting-started/sigils.html[Sigils]
 
-https://elixir-lang.org/getting-started/sigils.html
+Sigils support 8 different delimiters - `//`, `||`, `""`, `''`, `()`, `[]`, `{}`, `<>`.
 
 [%autowidth, options="header"]
 |=================
@@ -16,13 +16,6 @@ https://elixir-lang.org/getting-started/sigils.html
 |`~w()s` |Word list of strings (binaries)
 |`~w()c` |Word list of char lists
 |`~w()a` |Word list of atoms
-|=================
-
-== Metaprogramming
-
-[%autowidth, options="header"]
-|=================
-|Sigil |Explaination
 |=================
 
 == Escape Codes
@@ -48,6 +41,18 @@ The following escape codes can be used in strings and char lists:
 |`\uDDDD` and `\u{D...}` |represents a Unicode codepoint in hexadecimal (such as \u{1F600})
 |=================
 
+A double quote literal inside a double quoted string also needs to be escaped.
+
+== Metaprogramming
+
+[%autowidth, options="header"]
+|=================
+|Expression |Explaination
+|`__MODULE__`|Expands to the module name of the current module
+|
+|=================
+
+
 == Streams?
 
 == Protocols?
@@ -61,17 +66,6 @@ The following escape codes can be used in strings and char lists:
 == Types
 
 == Module Attributes
-
-Pattern Matching
-
-[%autowidth, options="header"]
-|=================
-|Behavior |Purpose
-|gen_server |For implementing the server of a client-server relation
-|gen_statem |For implementing state machines
-|gen_event |For implementing event handling functionality
-|supervisor |For implementing a supervisor in a supervision tree
-|=================
 
 [[footer]]
 [.credit]
