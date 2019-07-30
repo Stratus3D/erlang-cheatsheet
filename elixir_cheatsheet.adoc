@@ -58,38 +58,25 @@ Various metaprogramming variables and macros.
 [%autowidth, options="header"]
 |=================
 |Operation |List |Map |Struct
-|Create |`[1,2,3]` |`%{a: :foo}` |
-|Pattern match | | |
-|=================
-
+|Define | | |
 ----
 defmodule Person do
   defstruct first_name: "", last_name: ""
 end
 ----
-
-Create
-
-`%Person{first_name: "Trevor", last_name: "Brown"}`
-
-Pattern match
-
-
-Get field value
-Update
-
-== 
-
-[
+|Create |`[1,2,3]` |`%{a: :foo}` | `%Person{first_name: "Joe", last_name: "Armstrong"}`
+|Match |`[a, b \| rest] = list` | `%{a: value} = map` | `%Person{first_name: name} = struct`
+|Update | | |
+|=================
 
 [.comprehensions]
-== Comprehensions
+== link:https://elixir-lang.org/getting-started/comprehensions.html[Comprehensions]
 
 [source, elixir]
 ----
 for var1 <- generator1,
     var2 <- generator2,
-    new_var = some_expr(var1, var2,
+    new_var = some_expr(var1, var2),
     a_check?(new_var) do
     operation_to_generate_final_value(var1, var2)
 end
@@ -97,4 +84,4 @@ end
 
 [[footer]]
 [.credit]
-http://erlang.org/doc/design_principles/des_princ.html[OTP Design Principles]  Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]
+https://elixir-lang.org/getting-started/introduction.html[Elixir Guide]  Created by https://stratus3d.com[Stratus3D]  Copyright 2018.  https://github.com/Stratus3D/erlang-cheatsheet[Source Code]
