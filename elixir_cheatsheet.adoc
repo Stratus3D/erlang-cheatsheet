@@ -57,16 +57,16 @@ Various metaprogramming variables and macros.
 
 [%autowidth, options="header"]
 |=================
-|Operation |List |Map |Struct
-|Define | | |
+|Operation |List |Keyword List |Map |link:https://elixir-lang.org/getting-started/structs.html[Struct]
+|Define | | | |
 ----
 defmodule Person do
   defstruct first_name: "", last_name: ""
 end
 ----
-|Create |`[1,2,3]` |`%{a: :foo}` | `%Person{first_name: "Joe", last_name: "Armstrong"}`
-|Match |`[a, b \| rest] = list` | `%{a: value} = map` | `%Person{first_name: name} = struct`
-|Update | | |
+|Create |`[1,2,3]` |`[a: :foo]` |`%{a: :foo}` | `%Person{first_name: "Joe", last_name: "Armstrong"}`
+|Match |`[a, b \| rest] = list` |`[a: value] = list` |`%{a: value} = map` |`%Person{first_name: name} = struct`
+|Update |`[new_value \| list]` | |`%{map \| a: new_value}` |`%{first_name: new_value}`
 |=================
 
 [.comprehensions]
