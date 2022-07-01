@@ -7,7 +7,7 @@ Sigils support 8 different delimiters - `//`, `||`, `""`, `''`, `()`, `[]`, `{}`
 
 [%autowidth, options="header"]
 |=================
-|Sigil |Explaination
+|Sigil |Explanation
 |`~r()` |Regular Expression
 |`~s()` |String (binary)
 |`~c()` |Char list
@@ -23,7 +23,7 @@ The following escape codes can be used in strings and char lists:
 
 [%autowidth, options="header"]
 |=================
-|Code |Explaination |Code |Explaination
+|Code |Explanation |Code |Explanation
 |`\\` | single backslash |`\a` | bell/alert
 |`\b` | backspace |`\d` | delete
 |`\e` | escape |`\f` | form feed
@@ -41,11 +41,11 @@ A double quote literal inside a double quoted string also needs to be escaped.
 Various metaprogramming variables and macros.
 [%autowidth, options="header"]
 |=================
-|Expression |Explaination
+|Expression |Explanation
 |`__ENV__` |A struct containing details about the compilation environment
 |`defmacro (name) do ... end` |Define a macro
 |`quote do ... end` |Convert the code inside the block to AST
-|`unquote(expresion)` |Use to inject values from outside of the `quote` block
+|`unquote(expression)` |Use to inject values from outside of the `quote` block
 |`def __using__` |The using macro
 |`\_\_MODULE\_\_` |Expands to the module name of the current module
 |`__CALLER__` |
