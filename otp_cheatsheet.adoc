@@ -47,7 +47,7 @@ Child specs are maps with the following keys:
 [%autowidth, options="header"]
 |=================
 |Key |Optional |Description
-|`id` |required |An identifer to use for the process
+|`id` |required |An identifier to use for the process
 |`start` |required |The MFA to use to start the process
 |`restart` |optional |See the restart types
 |`shutdown` |  optional |`brutal_kill` or an integer timeout for workers. Must be `infinity` for supervisors.
